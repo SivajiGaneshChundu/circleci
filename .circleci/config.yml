@@ -13,12 +13,11 @@ commands:
       - run:
           name: Authenticate with Service Account
           command: |
-            echo $GCLOUD_SERVICE_KEY | base64 --decode > ${HOME}/gcloud-service-key.json
+            echo $GCLOUD_SERVICE_KEY | base64 > key_file.json
             gcloud config set component_manager/disable_update_check true
-            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file=./key_file.json
             gcloud auth configure-docker --quiet
             gcloud --quiet config set project << parameters.gcp_project >>
-        
            
 jobs:
   deploy_adhoc_gcf:
