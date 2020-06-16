@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SivajiGaneshChundu/circleci#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "dotenv": "^8.2.0"
   }
 }
