@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SivajiGaneshChundu/circleci/issues"
   },
-  "homepage": "https://github.com/SivajiGaneshChundu/circleci#readme"
+  "homepage": "https://github.com/SivajiGaneshChundu/circleci#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
