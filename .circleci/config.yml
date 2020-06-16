@@ -13,9 +13,9 @@ commands:
       - run:
           name: Authenticate with Service Account
           command: |
-            echo $GCLOUD_SERVICE_KEY | base64 --decode > home/gcloud-service-key.json
+            echo $GCLOUD_SERVICE_KEY | base64 --decode > key_file.json
             gcloud config set component_manager/disable_update_check true
-            gcloud auth activate-service-account --key-file=home/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file=key_file.json
             gcloud auth configure-docker --quiet
             gcloud --quiet config set project << parameters.gcp_project >>
            
@@ -31,7 +31,7 @@ jobs:
     executor: cloudsdk-executor
     steps:
       - checkout
-      - run: mkdir home
+      - run: touch key_file.json
       - gcloud_authenticate:
           gcp_project: << parameters.gcp_project >>
       - run:
